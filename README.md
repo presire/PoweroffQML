@@ -11,7 +11,7 @@ in a directory on the same level as the executable binary.<br>
 *PoweroffQML is created in Qt 5.15, so it requires Qt 5.15 library.*<br>
 <br>
 
-# 1. Install the necessary dependencies for PineScaleQML
+# 1. Install the necessary dependencies for PoweroffQML
 Create a directory for installing Qt libraries on PinePhone.<br>
 * libQt5Core.so.5
 * libQt5Gui.so.5
@@ -35,15 +35,31 @@ Get the latest updates.<br>
 
 Install the dependencies required to build the PoweroffQML.  
 
-    # Debian / Ubuntu
+    # Debian 11 bullseye / Ubuntu 21.04
     sudo apt-get install qt5-qmake qt5-qmake-bin \
                          libqt5core5a libqt5gui5 libqt5quick5 libqt5quickcontrols2-5 \
                          libqt5qml5 libqt5qmlmodels5 libqt5network5 libQt5Multimedia5
     
-    # SUSE
+    # openSUSE Tumbleweed
     sudo zypper install  libqt5-qtbase-common-devel libQt5Core5 libQt5Gui5 \
                          libqt5-qtquickcontrols libQt5QuickControls2-5 \
                          libqt5qmlmodels5 libQt5Network5 libQt5multimedia5
+<br>
+
+**Note:**<br>
+**SUSE Enterprise Linux and openSUSE Leap, Previous Debian10 / Ubuntu 20.04,**<br>
+**recommends that you install Qt 5.15 from the official Qt website.**<br>
+
+    wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
+
+    chmod +x qt-unified-linux-x64-online.run
+<br>
+
+**Install Qt.**<br>
+
+    ./qt-unified-linux-x64-online.run
+<br>
+
 <br>
 <br>
 

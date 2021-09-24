@@ -19,6 +19,7 @@ class CMainWindow : public QObject
     Q_OBJECT
 
 private:    // Private Variables
+    QString m_strIniFilePath;
     std::unique_ptr<CWorkerThread>  m_pWorker;
     std::unique_ptr<QThread>        m_pThread;
 

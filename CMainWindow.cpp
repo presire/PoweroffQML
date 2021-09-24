@@ -2,6 +2,8 @@
 
 CMainWindow::CMainWindow(QObject *parent) : QObject(parent)
 {
+    m_strIniFilePath = QCoreApplication::applicationDirPath() + QDir::separator() + tr("settings.ini");
+
     m_pWorker = std::make_unique<CWorkerThread>();
     m_pThread = std::make_unique<QThread>();
 
@@ -13,6 +15,7 @@ CMainWindow::CMainWindow(QObject *parent) : QObject(parent)
     m_pThread->start();
 }
 
+
 CMainWindow::~CMainWindow()
 {
     m_pThread.release();
@@ -21,7 +24,7 @@ CMainWindow::~CMainWindow()
 
 int CMainWindow::getMainWindowX()
 {
-    QSettings settings("settings.ini", QSettings::IniFormat, this);
+    QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
     settings.beginGroup("MainWindow");
 
@@ -38,7 +41,7 @@ int CMainWindow::getMainWindowX()
 
 int CMainWindow::getMainWindowY()
 {
-    QSettings settings("settings.ini", QSettings::IniFormat, this);
+    QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
     settings.beginGroup("MainWindow");
 
@@ -55,7 +58,7 @@ int CMainWindow::getMainWindowY()
 
 int CMainWindow::getMainWindowWidth()
 {
-    QSettings settings("settings.ini", QSettings::IniFormat, this);
+    QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
     settings.beginGroup("MainWindow");
 
@@ -72,7 +75,7 @@ int CMainWindow::getMainWindowWidth()
 
 int CMainWindow::getMainWindowHeight()
 {
-    QSettings settings("settings.ini", QSettings::IniFormat, this);
+    QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
     settings.beginGroup("MainWindow");
 
@@ -89,7 +92,7 @@ int CMainWindow::getMainWindowHeight()
 
 bool CMainWindow::getMainWindowMaximized()
 {
-    QSettings settings("settings.ini", QSettings::IniFormat, this);
+    QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
     settings.beginGroup("MainWindow");
 
@@ -110,7 +113,7 @@ int CMainWindow::setMainWindowState(int X, int Y, int Width, int Height, bool Ma
 
     try
     {
-        QSettings settings("settings.ini", QSettings::IniFormat, this);
+        QSettings settings(m_strIniFilePath, QSettings::IniFormat, this);
 
         settings.beginGroup("MainWindow");
         settings.setValue("X", X);

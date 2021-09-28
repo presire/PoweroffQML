@@ -466,7 +466,7 @@ ApplicationWindow {
             spacing: 20
 
             Image {
-                source: "Poweroff.svg"
+                source: "PoweroffQML.svg"
                 ColumnLayout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 fillMode: Image.PreserveAspectFit
                 //ColumnLayout.bottomMargin: 20

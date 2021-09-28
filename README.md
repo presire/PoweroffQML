@@ -86,6 +86,9 @@ The recommended installation directory is the home directory. (Ex. <I>**${HOME}/
 Copy Shutdown.wav to a directory at the same level as the Poweroff QML executable binary.<br>
 
     cp Shutdown.wav /<Directory at the same level as the installed Poweroff QML>/
+    cp PoweroffQML.svg /<Directory at the same level as the installed Poweroff QML>/
+
+<br>
 <br>
 
 # 3. Create DesktoEntry for PoweroffQML
@@ -101,7 +104,6 @@ Copy Shutdown.wav to a directory at the same level as the Poweroff QML executabl
     Exec=/<PoweroffQML Install Directory>/PoweroffQML %F
     Terminal=false
     Categories=Utility;
-<br>
 
 <br>
 <br>
@@ -109,11 +111,11 @@ Copy Shutdown.wav to a directory at the same level as the Poweroff QML executabl
 # 4. Execute PoweroffQML
 Make sure you can execute **PoweroffQML**.<br>
 <br>
-<center><img src="img/PoweroffQML_SS_1.png" width="50%" height="50%" ></center><br>
+![](img/PoweroffQML_SS_1.png#center)<br>
 <br>
 First, select [File] -> [Save Password].<br>
 Next, enter the Linux administrator password and click the [Save] button.<br>
-<center><img src="img/PoweroffQML_SS_2.png" width="50%" height="50%" ><img src="img/PoweroffQML_SS_3.png" width="50%" height="50%" ></center><br>
+![](img/PoweroffQML_SS_2.png#center)![](img/PoweroffQML_SS_3.png#center)<br>
 Press the [Shutdown] or [Reboot] button to see if Linux will shutdown/restart.<br> 
 (You can also use the shortcut key [U] Key to shut down and [R] Key to reboot.)<br>
 <br>

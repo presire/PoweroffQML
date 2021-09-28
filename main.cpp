@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
 
     // Set PoweroffQML's Icon
-    app.setWindowIcon(QIcon(":/Poweroff.svg"));
+    app.setWindowIcon(QIcon(":/PoweroffQML.svg"));
 
     // メイン画面のコア処理
     qmlRegisterType<CMainWindow>("MainWindow", 1, 0, "CMainWindow");

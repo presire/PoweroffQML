@@ -86,7 +86,7 @@ The recommended installation directory is the home directory. (Ex. <I>**${HOME}/
 Copy Shutdown.wav to a directory at the same level as the Poweroff QML executable binary.<br>
 
     cp Shutdown.wav /<Directory at the same level as the installed Poweroff QML>/
-    cp PoweroffQML.svg /<Directory at the same level as the installed Poweroff QML>/
+    cp PoweroffQML.png /<Directory at the same level as the installed Poweroff QML>/
 
 <br>
 <br>
@@ -100,7 +100,7 @@ Copy Shutdown.wav to a directory at the same level as the Poweroff QML executabl
     Name=PoweroffQML
     GenericName=PoweroffQML
     Comment=Linux Shutdown / Reboot Software
-    Icon=/<PoweroffQML Install Directory>/PoweroffQML.svg
+    Icon=/<PoweroffQML Install Directory>/PoweroffQML.png
     Exec=/<PoweroffQML Install Directory>/PoweroffQML %F
     Terminal=false
     Categories=Utility;

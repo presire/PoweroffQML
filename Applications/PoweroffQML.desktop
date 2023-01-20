@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=PoweroffQML
+GenericName=PoweroffQML
+Comment=Linux Poweroff System
+Exec=PoweroffQML %F
+Icon=PoweroffQML.png
+Categories=System;
+Terminal=false

@@ -1,0 +1,13 @@
+Makefile
+build
+PoweroffQML/Debug
+PoweroffQML/Release
+PoweroffQML/build
+**/*.pro.user*
+**/*.0
+**/*.o
+**/*.lo
+**/*.so
+**/*.out
+**/*.a
+tags

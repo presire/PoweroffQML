@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15
 import QtMultimedia 5.12
 import MainWindow 1.0
 
+
 ApplicationWindow {
     id: mainWindow
     x: mainWindowModel.getMainWindowX()
@@ -129,12 +130,12 @@ ApplicationWindow {
             font.pixelSize: 16
 
             // [Save Password] SubMenu
-            Action {
-                text: "Save Password(&P)"
-                onTriggered: {
-                    passwordDialog.open();
-                }
-            }
+//            Action {
+//                text: "Save Password(&P)"
+//                onTriggered: {
+//                    passwordDialog.open();
+//                }
+//            }
 
             // [Quit] SubMenu
             Action {
@@ -181,17 +182,6 @@ ApplicationWindow {
         width: mainWindow.width
         height: mainWindow.height - menu.height
         
-//         Material.theme: theme.position < 1 ? Material.Light : Material.Dark
-// 
-//         Switch {
-//             id: theme
-//             anchors.right: parent.right
-//             anchors.top: parent.top
-//             anchors.margins: 10
-//             text: "Dark theme"
-//             checked: false
-//         }
-
         Label {
             text: "You can Shutdown / Reboot Linux"
             width: parent.availableWidth
@@ -270,7 +260,7 @@ ApplicationWindow {
                         let strPassword = mainWindowModel.getPassword()
                         if(strPassword === qsTr(""))
                         {
-                            stateMessage = qsTr("Message of State will be displayed here...\n")
+                            stateMessage.text = qsTr("Message of State will be displayed here...\n")
                             errorDialog.title = qsTr("Error")
                             errorDialogMessage.text = qsTr("password has not been entered.")
                             errorDialog.open()
@@ -280,7 +270,7 @@ ApplicationWindow {
                         let bExistSoundFile = mainWindowModel.isExistSoundFile()
                         if(!bExistSoundFile)
                         {
-                            stateMessage = qsTr("Message of State will be displayed here...\n")
+                            stateMessage.text = qsTr("Message of State will be displayed here...\n")
                             errorDialog.title = qsTr("Error")
                             errorDialogMessage.text = qsTr("Shutdown.wav file not found.")
                             errorDialog.open()
@@ -469,19 +459,49 @@ ApplicationWindow {
                 source: "PoweroffQML.svg"
                 ColumnLayout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 fillMode: Image.PreserveAspectFit
-                //ColumnLayout.bottomMargin: 20
             }
 
             Label {
-                text: "<html><head/><body><p>PoweroffQML developed by Presire<br> \
-                       <a href=\"https://github.com/presire\">Visit Prersire Github</a></p></body></html>"
+                text: "PoweroffQML" + "\t" + mainWindowModel.getVersion()
+                width: parent.availableWidth
+
+                font.pointSize: 12
+
+                textFormat: Label.RichText
+                wrapMode: Label.WordWrap
+
+                horizontalAlignment: Label.AlignHCenter
+                verticalAlignment: Label.AlignVCenter
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.topMargin: 10
+            }
+
+            Label {
+                id: labelLink
+                text: "PoweroffQML developed by Presire" + "<br><br>" +
+                      "<a href=\"https://github.com/presire\">Visit Prersire Github</a>"
                 width: aboutDialog.availableWidth
+                textFormat: "RichText"
 
                 horizontalAlignment: Label.AlignHCenter
                 verticalAlignment: Label.AlignVCenter
                 ColumnLayout.fillWidth: true
                 ColumnLayout.fillHeight: true
-                //ColumnLayout.bottomMargin: 20
+
+                onLinkActivated: {
+                    Qt.openUrlExternally(link)
+                }
+
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+
+                    onClicked: {
+                        labelLink.linkActivated("https://github.com/presire")
+                    }
+                }
             }
 
             Button {
@@ -489,7 +509,7 @@ ApplicationWindow {
                 text: "Close"
 
                 Layout.alignment: Qt.AlignHCenter
-                Layout.bottomMargin: 10
+                Layout.bottomMargin: 20
 
                 Connections {
                     target: aboutDialogButton

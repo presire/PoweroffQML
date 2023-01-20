@@ -1,5 +1,6 @@
 ﻿#include "CMainWindow.h"
 
+
 CMainWindow::CMainWindow(QObject *parent) : QObject(parent)
 {
     m_strIniFilePath = QCoreApplication::applicationDirPath() + QDir::separator() + tr("settings.ini");
@@ -210,6 +211,11 @@ int CMainWindow::onReboot(QString strPassword)
     return 0;
 }
 
+//Q_SCRIPTABLE void slot_foo()
+//{
+//    qDebug() << "request received";
+//}
+
 int CMainWindow::savePassword(QString strPassword)
 {
     if(strPassword.isEmpty())
@@ -311,4 +317,9 @@ bool CMainWindow::isExistSoundFile()
     }
 
     return true;
+}
+
+QString CMainWindow::getVersion()
+{
+    return QString(VER);
 }

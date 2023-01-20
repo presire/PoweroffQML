@@ -21,6 +21,7 @@ Create a directory for installing Qt libraries on PinePhone.<br>
 * libQt5QmlModels.so.5
 * libQt5Network.so.5
 * libQt5Multimedia.so.5
+* libQt5DBus.so.5
 <br>
 
 Get the latest updates.<br>
@@ -40,15 +41,14 @@ Install the dependencies required to build the PoweroffQML.
                          libqt5core5a libqt5gui5 libqt5quick5 libqt5quickcontrols2-5 \
                          libqt5qml5 libqt5qmlmodels5 libqt5network5 libQt5Multimedia5
     
-    # openSUSE Tumbleweed
-    sudo zypper install  libqt5-qtbase-common-devel libQt5Core5 libQt5Gui5 \
+    # SUSE Linux Enterprise / openSUSE
+    sudo zypper install  libqt5-qtbase-common-devel libQt5Core5 libQt5Gui5 libQt5DBus \
                          libqt5-qtquickcontrols libQt5QuickControls2-5 \
                          libqt5qmlmodels5 libQt5Network5 libQt5multimedia5
 <br>
 
 **Note:**<br>
-**SUSE Enterprise Linux and openSUSE Leap, Previous Debian10 / Ubuntu 20.04,**<br>
-**recommends that you install Qt 5.15 from the official Qt website.**<br>
+**You can also install Qt from the official Qt website.**<br>
 
     wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
 
@@ -81,6 +81,9 @@ The recommended installation directory is the home directory. (Ex. <I>**${HOME}/
     qmake ../PoweroffQML.pro PREFIX=<The directory you want to install in>
     make -j $(nproc)
     make install
+
+<I>**Note:**</I>  
+<I>**The CC or CXX option can also be used to specify a compiler.**</I>  
 <br>
 
 Copy Shutdown.wav to a directory at the same level as the Poweroff QML executable binary.<br>
@@ -113,11 +116,11 @@ Make sure you can execute **PoweroffQML**.<br>
 <br>
 ![](img/PoweroffQML_SS_1.png#center)<br>
 <br>
-First, select [File] -> [Save Password].<br>
-Next, enter the Linux administrator password and click the [Save] button.<br>
-![](img/PoweroffQML_SS_2.png#center)![](img/PoweroffQML_SS_3.png#center)<br>
+<del>First, select [File] -> [Save Password].</del><br>
+<del>Next, enter the Linux administrator password and click the [Save] button.</del><br>
+<b>Since the D-Bus is now used, passwords are no longer required.</b><br>
+<br>
 Press the [Shutdown] or [Reboot] button to see if Linux will shutdown/restart.<br> 
 (You can also use the shortcut key [U] Key to shut down and [R] Key to reboot.)<br>
 <br>
 <br>
-

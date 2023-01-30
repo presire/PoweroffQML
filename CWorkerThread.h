@@ -32,7 +32,7 @@ signals:
     void result();
 
 public slots:
-    void Shutdown(QString strPassword, int iShutdownID);
+    void Shutdown(int iShutdownID);
 };
 
 #endif // CWORKERTHREAD_H

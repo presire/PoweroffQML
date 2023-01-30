@@ -10,7 +10,7 @@ CMainWindow::CMainWindow(QObject *parent) : QObject(parent)
 
     m_pWorker->moveToThread(m_pThread.get());
 
-    connect(this, SIGNAL(start(QString,int)), m_pWorker.get(), SLOT(Shutdown(QString,int)));
+    connect(this, SIGNAL(start(int)), m_pWorker.get(), SLOT(Shutdown(int)));
     connect(m_pWorker.get(), SIGNAL(result()), this, SIGNAL(result()));
 
     m_pThread->start();

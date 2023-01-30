@@ -50,7 +50,7 @@ public:     // Public Functions
     Q_INVOKABLE QString getVersion();
 
 signals:
-    void start(QString strPassword, int iShutdownID);
+    void start(int iShutdownID);
     void result();
 };
 

@@ -211,23 +211,11 @@ ApplicationWindow {
                     function onClicked() {
                         stateMessage.text = qsTr("It will be Shutdown your PC as soon.  Please wait a moments...\n") +
                                             qsTr("If it does not Shutdown, the password may be wrong.")
-                        //iShutdownID = 0
-                        //shutdownTimer.start()
-
-                        let strPassword = mainWindowModel.getPassword()
-                        if(strPassword === qsTr(""))
-                        {
-                            stateMessage = qsTr("Message of State will be displayed here...\n")
-                            errorDialog.title = qsTr("Error")
-                            errorDialogMessage.text = qsTr("password has not been entered.")
-                            errorDialog.open()
-                            return
-                        }
 
                         let bExistSoundFile = mainWindowModel.isExistSoundFile()
                         if(!bExistSoundFile)
                         {
-                            stateMessage = qsTr("Message of State will be displayed here...\n")
+                            stateMessage.text = qsTr("Message of State will be displayed here...\n")
                             errorDialog.title = qsTr("Error")
                             errorDialogMessage.text = qsTr("Shutdown.wav file not found.")
                             errorDialog.open()
@@ -238,7 +226,7 @@ ApplicationWindow {
 
                         disableUI()
 
-                        mainWindowModel.start(strPassword, 0)  // 0 : Shutdown, 1 : Reboot
+                        mainWindowModel.start(0)  // 0 : Shutdown, 1 : Reboot
                     }
                 }
             }
@@ -254,18 +242,6 @@ ApplicationWindow {
                     function onClicked() {
                         stateMessage.text = qsTr("It will be Reboot your PC as soon.  Please wait a moments...\n") +
                                             qsTr("If it does not Reboot, the password may be wrong.")
-                        //iShutdownID = 1
-                        //shutdownTimer.start()
-
-                        let strPassword = mainWindowModel.getPassword()
-                        if(strPassword === qsTr(""))
-                        {
-                            stateMessage.text = qsTr("Message of State will be displayed here...\n")
-                            errorDialog.title = qsTr("Error")
-                            errorDialogMessage.text = qsTr("password has not been entered.")
-                            errorDialog.open()
-                            return
-                        }
 
                         let bExistSoundFile = mainWindowModel.isExistSoundFile()
                         if(!bExistSoundFile)
@@ -281,7 +257,7 @@ ApplicationWindow {
 
                         disableUI()
 
-                        mainWindowModel.start(strPassword, 1)  // 0 : Shutdown, 1 : Reboot
+                        mainWindowModel.start(1)  // 0 : Shutdown, 1 : Reboot
                     }
                 }
             }

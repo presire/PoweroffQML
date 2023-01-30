@@ -5,7 +5,7 @@ CWorkerThread::CWorkerThread(QObject *parent) : QObject(parent)
 
 }
 
-void CWorkerThread::Shutdown([[maybe_unused]] QString strPassword, int iShutdownID)
+void CWorkerThread::Shutdown(int iShutdownID)
 {
     // Play Shutdown's Sound. Wait until playback is finished.
     QString strFilePath = QCoreApplication::applicationDirPath() + QDir::separator() + tr("Shutdown.wav");
